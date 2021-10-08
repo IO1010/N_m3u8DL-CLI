@@ -215,7 +215,8 @@ namespace N_m3u8DL_CLI
                                 decryptBuff = Decrypter.AES128Decrypt(
                                     fi.FullName,
                                     Convert.FromBase64String(Key),
-                                    Decrypter.HexStringToBytes(Iv)
+                                    Decrypter.HexStringToBytes(Iv),
+                                    System.Security.Cryptography.CipherMode.ECB
                                     );
                             }
                             FileStream fs = new FileStream(Path.GetDirectoryName(savePath) + "\\" + Path.GetFileNameWithoutExtension(savePath) + ".ts", FileMode.Create);
