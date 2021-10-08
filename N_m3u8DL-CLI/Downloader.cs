@@ -93,7 +93,8 @@ namespace N_m3u8DL_CLI
                         decryptBuff = Decrypter.AES128Decrypt(
                             encryptedBuff,
                             Convert.FromBase64String(Key),
-                            Decrypter.HexStringToBytes(Iv)
+                            Decrypter.HexStringToBytes(Iv),
+                                    System.Security.Cryptography.CipherMode.ECB
                             );
                         Global.AppendBytesToFileStreamAndDoNotClose(LiveStream, decryptBuff);
                         LOGGER.PrintLine("<" + SegIndex + " Complete>\r\n");
